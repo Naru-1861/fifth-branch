@@ -1,0 +1,588 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<style>
+/* 기본값: 안전 영역(노치·하단 바) 여백, 여백 초기화 */
+:root { color-scheme: light; padding-top: env(safe-area-inset-top, 0px); padding-bottom: env(safe-area-inset-bottom, 0px); }
+body { margin: 0; }
+img { max-width: 100%; }
+[hidden] { display: none !important; }
+</style>
+<title>미우현첩 문진</title>
+<meta name="description" content="첩 스물두 장에 구름을 새기면, 점수에 맞는 방이 정해집니다.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Song+Myung&display=swap">
+<style>
+/* 한자 붓글씨: 쓰는 15자(零–十, 密雲散殘)만 잘라 넣음. Yuji Mai, OFL(상업 사용 가능). 사용자 SVG가 오면 교체 */
+@font-face { font-family: "Chup Hanja"; src: url(data:font/woff2;base64,d09GMgABAAAAAAWgAA8AAAAACeQAAAVMAAMAgwAAAAAAAAAAAAAAAAAAAAAAAAAAGYFSHCoGYAA0EQgKiQiGVwE2AiQDCAsGAAQgBYNqByAXJBgGG6QHUZQwTh3AjwTbeVSH3xSCpaMdU6+CB55Off/ugsLxlCptxmBi2kFIncFWjuZGXsc7kZhJcV+3encviE0wlcTayhu6pt7xN1iFDXSkE6micYZFBeBA5gMcVdjbQmj2wDzg2ZoTSnRo4DiUB7uGpa9CAFpSaIGCOrlCtXrYUnt1bkvRzM7pbSia5W3vw9bG296Lra23a3uKogZAQiEnMdiYjBoAGYVgwtExEIEZIT1A+EeiYEDxpWaktPmu/5iwjs4d2rXPZzw3NIFJfrmhDUDoWRqIjUSkPL5QVB0mFAC/H3VakU+LiahAGi01AqpeukQLXKIiSEFqiNBST9XkhlC2zcz+UbmjfyQoI4UVEABStPQLsKIGJEAGdMgIphSsUAEi2Wam3y8GU30IAI/whzRAuA4KEASiH4glQIWgQq3I6pecbb9MM2gBQhOiblJws5r4VI2ENHk66AAMoOucnu10vTQMdhpE57iNkTj/a6qa5VOlF2Vipu5ztRoZgWAYoBNHznIDKxvvNxo6IxulDGKw1Vb/F2Ak+HyDYD6rZ3BqFuRi+K/IXaPbT/g6C5+rBYsBMTFh30g7urvM/asdUS8SuFvHdusTh9LMy5b+1o51mae3YO0ofguZrpEzIykDo3m3vUuPUhBM1XMS3It+3YPJuTpc2d1Er+h6kd4rN1g6q2OLl2NzqmYBcOT01shACBYja+zui/BFba2cVLJwbuwezZgwodT3w/2v3docjZNF/W3NkNfdpheFlWJ2HrDDlDIWp3b0kRfN9I9gTOU22wYfq/1tQJYOLANUbt7xJHuZvpg01/9doGcrrSzd7z69X073aMek52n5teWv5wuLe6LXGvTCYkO7diMPdfL8GSlB7VqLa6ccSrZqpHoTzNVq1l/RvcmQyx//OeqEPGF6u3KxW6ofKWd1l4qhTq9EQ4WkPv3KaiSryjXLEl3R44qn7OeeDTL1Fe3rWfdpwNFDjyK/FK65IuApX2lnNKxPSP7Zz1944RNtRg117kFRk7ZtDa2pmT65cmgNtTFZp83V9Uvgj609Fzp36JyZUW53pktTyTxjyNMhszyB3gH/W12LjE+oX6xIsbjIwirv93fumUmlkop00kZ0rmQaNdKpUVvi2BM9+2xvEiYXr+coRGyMxykkbXRMGymuSC3d+aiU0469pSNXToqbXCE9RBnyoMWXWU+srRyS2dzV/Tf9dRch9KEdp/co4nUMyOcZcMjj+aQPX3Ntg3IlX7VSaUNrJUXVz9d81gxdxf6eOzbLPJ5M6TC/3PAl4xtffWTd6stqtmVCuDJpoaIPNjqC+TCpc5sHRXN2s9Uo/7WCtHDos2VHppRfpD3fvft+k9JsTHKdF8ONAZkG47PK2TsOG2Msm32te+3pkkmbtrzWzq0FAAKQGRLX6m3FlmElv2ll+SXAnQ8zOgK80EyLA/9CebvcElAjASBAGfn/IUSYeQUCFZDEVwrkRXjU7VADDFfntGQgI5QAYDk8giCc5YJEKNsFGRdHBQUr3wUVFmEQ1OQUDu2hFBY1SKIDHelFZ3xkkkVXrLhw4MIpnnpemK5sTDda48vVojMdOJBO6v7j5ehGV7LoQGe6YCUR51hXOtKF4hSgAJn4dj3SjRTyk0oH2lGAqvhoH38ELxl0oD1dycCLbMWL9KJA5nl7DcrqePFR51gm3WiLl864yY+j7t4SVCWZhpQQe8ySfGM45jLrCDQg/Uw+X3Xz1izjYw8/f6ALqW/X01ECXciPGmhL/lPCzJaaVKAaMsqkfy4u6kU44uv/YPll35gITPLFb8YnVr0u) format("woff2"); font-display: swap; unicode-range: U+6B98; }
+@font-face { font-family: "Chup Hanja"; src: url(data:font/woff2;base64,d09GMgABAAAAAAUsAA8AAAAACSwAAATYAAMAgwAAAAAAAAAAAAAAAAAAAAAAAAAAGYFSHCoGYAA0EQgKh1CFVgE2AiQDCAsGAAQgBYNqByAXJBgGGyMHUZQwThDFjwXblgMrnGWeUjqjq+VKGnwnHr7243fu7n5RnS6azEJXmf67Ic1DgxBphemEApXnA/fLd21HiVFFUbWKn2UDnsCIhnxDbM1DXt4KwMgqwqht8IuImv9r6n1bFGBe4UBHOpGLHm2UqRFNUjiws1U9L6CBTQRmbi0EHUTQqOTYZBxDpEefd88SqHfukVXt9u5sh+hFnUijflP+QaF+m8YSiD4I9PL4Y5rMos4OkmJUUNQvwCBvatbO5QeEAaZ0v8hWvYpe1ruLz9dtUv5lwjxEjmET7SeBD/rkyjEdRO0pv9GsOHOS08n9wccK1X+g+0s+FaNqSB9TLDjqfkMcK4YPpCYEqL5epaPtI7D+/V4/CpdWvZT3oQoC0kT6CWCcHQkZ3Syi4K3GQYEi8f3b///NJk8YBIhhBIVgnKegmViDuAQjmxp1BdZnP26LnYiIuIgQxBVF4hNEEhPi8/hjY0XjG5g9utt2yc/sV5jeZX3smuXk4hJs5VW7nfK17Fq5NVfs20h0xxVfCp2cBa2zspM8fNU1lbY2eWKLJiG7ZZ88w6DMDmuKh9Nbdc5fd9l93QI6csWTWLNGdnJWjmBQ3iptahqnphVIWoamMXphQQYSbs91H/rh23bF0pNZpcCyGBZizmyIkmFP6rWGSQd5lyOnwPGrViQrPEAfipN67+VB7Nq52EPXwpkze1B2uw69HGP3ajFHrljyeDixAiUYvBUjUaJfqJ9AkzfKbL1us/26FY1TwuzJaILZK4V4+5TZo3tTCR8hLt45oNiZUYVfi16+U4vEGMGpVNIh0O5IHHNEE2/C6N2rQcqXlJ/PFu3d1dZcjYt2nZVVhoNl7v8mYB92df2LTO7wn1PErhsSYe5l0HV1a1jlR6h+fX+csrXDhbjsWHw72Ie+SXDUXb8pTUpSCs48UpCrxPFD5C39PlRDmlqqv29j544nHIJoavKWqiAnO0IvxMcVLvRM5QbJywR2Usrf9HR9LOMw+Q05a262hpepmaVG3Nk4Puuw1XFZrmQJ19OmwOaQG5LocLBmjbFgxZ+bIcgWJFjQjMPHH/bz1KjIazy6PZrT/vDgBZ0sobYU6OKoqxBX3jyyLZ4TGaYOejr23nR4kJfvpYtuXx1BWT7aeuBgafDXD64cA427N6rhnmp8jAOjUmoIH8cNsSA8PCQ0/fgzMkORCVVNab6JTSJP/dMRPujvfWZ8aFzbTHbCNVXtnU/MqFOIirvNUlcPKWHfC6Vy4WowKo9JS8tXu4Wp7Usd+2Uwdi63fYnu1p/BhzX6lAAEsmdi84JFirjjPwEYfgHw+z3NA/zhktMAVWdmcwqolUBQ3v9/ABBZkX8I6k/xZcRvw4SC+hzxPnqs3jWLKIKAnwCAQ7s/OGn1C87m/MPFuDtcYzBwuNZomBLlKUsRrIvDM4gIX77J/Iryigr8djD4wJ8pSIS4Gs/nkD68SXabQvZt5IskfnHSPhlP0pST84UYk1O8ynrDYSwwdbIEz4tPIYFB9ilhk8Q0Qy57MjEFfu4FYbPvi4L2QlSSlZ+8vWWq56jVmNCMjPSmzvKL/+BjKScx36Q/Z3B67xfwS97eV+SbX5Ll+mnZNcFX3dLAjIU6rGbNqYx2pr//ROAXdW2S1R/4zaeRwnY7Aw==) format("woff2"); font-display: swap; unicode-range: U+96F6; }
+@font-face { font-family: "Chup Hanja"; src: url(data:font/woff2;base64,d09GMgABAAAAAAVAAA8AAAAACSwAAATpAAMAgwAAAAAAAAAAAAAAAAAAAAAAAAAAGYFSHCoGYAA0EQgKh1CFWAE2AiQDCAsGAAQgBYNqByAXJBgGGyUHUZQwThjFx+rLOYokuRkP/x377puZjSrQSEr74Ft9fD3KGnBBymSPF6//H+jUf8dKUZ2kFFMB6eao8E1ysO3DiNXfq77HqYD1N0tAQxqh0i7p9meWUij2LbVrBBoG6GuaVWwWsIQiAjG3FoYTH8KIxpQxjyHSo0efVx8lUG9bMVztWnRiJljv9LY1gO9BW2U9+B7ymmrB+oTXxAPrU15HE/giQVKM4rK2C0iQFc3a0YwAYgCSPgCkOgO4XvhReVXZMdnxy4RFtDU3NgV6t+csdp/LOYIxOKNGB2yhQQltbJ4Fx0JVCeAEJT9EdgBBukNzAVTET7EO7hEDkJpIYEu9SpW1HICll5/zS7EW5QxAuUHYAALSBPoXgHEkEjK6YSIpceNAYVF6+VmpJI9aHQigGEAdRILDSlNbLALEAUDSUqO2YHyXh76DtTQ0CERFi8wv0CwsyK8lcnO18vtHDh+mCc4zRKNMMVMkmYBETWUKDtbYoc47FpkLD+We/NPWQiF9z4UjJtTVk0Z8ijYvNZGswdw+5jmZ0whNQOdLMwUC2t6j9ot76Pat52z2nbMSWR+Umy9uGlFSzwluQD28aUSdZ+VZkiWWR/fgUzOxmLnvmNHCXsY9SxdVf/2mewpFzOICg7rtKRIxFo4an3lgdU6h8BHv05i7cMWQknryb1uO0IXztDOKmH3nmHMMkcYdmZNgni4U5lK3rfl8yzOyFzITylp0lCGVZu4/ffGk0Rm7cwqXvactBRIadfGokXCfjVjMPKeY7he6TzIXbtoLTqtLnrPmOuUC6upNoz1ue3CkdIQ2IqGdlZudeZJH0cRiKPm15K/P1/zDOYevtjW/iY5O643W8D8UBLj9qhrZVtXNltExri5isMt11BXz1LO0zZmuUdfyPTTzEesBGgpuBmlst3F3P58YzumX9/11T1HmjkISSRPCUI2zYywGDyUyMvAICS0cP35t/QslcfKVPG0zVL/CQz9S9w93JyTa25AR91GMurXTjJR7ygT1r2hdd1ENS+Fm6rueMPhw5qfod7u0XnjrXlhh9K5X21joR2JDleqVGo26VXmfVOzw4nv+PFvPtd2iKECzcNtb2zT0N4HzF42nmp6Uot7eXcHujTg3rfVHlShPQi86ZGyG40sP4CftXf/QxF+qHWERyorcZrv2N+3dKHJYP460fXn0hn1bR1BwrFfYntjdr9a54s/Dfn6J8l60dJaS5UQhaTX6xw7Om82tx+4iOy00lIVvTeKIZLWcMOlPaoPsNPb+nL9dcZxUd5+VOkUZqkWYFqDarQUAEMjOlTrfqZXoBP6mimFfAvD1g7gFgG8VoRVA9Rp2CisBUCuBoNz8/yGAZ01+AwQjxa8WREC0yHcxJ/CxevswUdSAVwBFCO32CkmrTyGbdFsoxv0u1BgMhlBrNFxvbzUbyRChWYtebWpVq9GBzZ0rd26Uk6nzSmWeTnVqKdVOzScqlbf9YTp1qNGsTTs2W9C+Di3a+XPholqtTdupjLNyOzWOeEKiCaDyVBW/Qh0iwUP7gTm9xkj0pN0SyiQ8tdL3VevUgKeNB2eui7cHSBApRwCFXDOcSm/oLHZBtsqtErXrTbJjBof3fgC0K39eaiG0c8aigfOevLouRbREGPZZXQJ3ldEOyP//mtiXeWPQ45NPvJpEjON5AAAA) format("woff2"); font-display: swap; unicode-range: U+96F2; }
+@font-face { font-family: "Chup Hanja"; src: url(data:font/woff2;base64,d09GMgABAAAAAAPUAA8AAAAABzwAAAOAAAMAgwAAAAAAAAAAAAAAAAAAAAAAAAAAGYFSHCoGYAA0EQgKg2CCdwE2AiQDCAsGAAQgBYNqByAXJBgGG8QFUZQwSiTNjwPn9BZIkko4Ka5GnboSNb50+KbvEbzsdfdGJ2PGg3LTVVUY5jC+wSI8FpwnHuLx30C8alKvlD1Yb7t6wL5a2yKZTLyEe7P0CU/83PvJ27KHhBoImaFr6j83YDQe6CtH0eufyEdZ9AY4kPlEG+cDHM0efKDQ6rZ70RXDmogY5JzzZMk+lABTzT2UCWelrTPUbr6oYfGAvoLFI08E1F54wqH2yimBBQGQOEHCRJkOAVA4ZnZuQ0H4InkfGcaCQ3FPLQJH5vRhwjYwjRM37TjUB5nmV50JAaZvci5KDMbFq1guqOKA4T+4v+tUTAUP+c7cARZ1GcQ5RlEGkGsCSE2VLc5uAEfLuN20lP0fC/SKMEAAecj8BAcEkKDAPhZRNScEdJrA8u3/vwPrZARwyBY0AhLABlPwIX4DRBlhm+VVK8oEBhPRItRvYG7YoH47vm5dS/0BK65lLdtmHH9FQhnyErcs47630GXr1kVpGhnmPXm9zvbr0dq8eXTZrjhtt3f5zp0eRdfdMlXd8hz38QllJlDVu/3q1brylqhV167Fzdq3z09b6lGWmlZejV25MUBR3PLQ5iuuXLkQIatUVd24fNj+y/Ha+vXeWav8lh/dC/tLk5/PFuQVD10jzILckT170Qe7Ff9vkPfxyoRq2Dbq6UrsxPYUOxiWPTy5OURu/qOyaj5+La4E5aSiIdPEyhJbjP9oZDLyJt7l76R+sF+okIy4fBdTtSqZdaa8Z9BBISOjqF7JUTS6/DU9gbYPLhNcsmUDMW/t5ZxRPX1Nv6sk7c+q1DDXzHOmI/d7xpdKrJT0pvnGaqnDijlLZu28CGrToFKLloWbFTR/eX+pGQAEKCMcoc8/27b5KrHsC+DnvdYV8CsqkQD1xdoAYwwgoFf/HkD9nTeAIMz4UoIcZAWMAA906LGp1kpIGwCfwBAJu2Uiw2qbyEpzROSE+Cby/IKKgqBIeX1WWVEZW6nMFxJCEcKkSZEmVYiaIj6mHkMSmKpQSvK5CFOMQSIp9MTEaIuQzNNKsmRtCCRiOHpaSMX6KhASBuECqQQJcC6SQl9933kzgLoSTjjuCxkah8aSpISu5qtg52bd9Ys1XbQbrmOAV34iT0SbMY8Bxu3poz24kNg5BK9nCbVeRjR8wioOLCWAYQ7SsBzbIP//zOyLtjOHvpU9jBcndwk=) format("woff2"); font-display: swap; unicode-range: U+516D; }
+@font-face { font-family: "Chup Hanja"; src: url(data:font/woff2;base64,d09GMgABAAAAAAOMAA8AAAAABtAAAAM1AAMAgwAAAAAAAAAAAAAAAAAAAAAAAAAAGYFSHCoGYAA0EQgKgnSCLAE2AiQDCAsGAAQgBYNqByAXJBgGG3kFIB6FcTN9yRuo5K1MogcB9uc3eUnxaS3VhcSTfALYo7kdppn4CddoaQn3l/kNKZ1MyLQAIUH8u7u3DxR6HHgLaitwbP5vpn3LCnAt6gUWaaJjUVpC0V4keSK37fxENrifzg2DUAyfTvTAZij+FAIw0taaE31xqTSE6BpiCKjvvicO9dNGoRC9bZQdRF8bVKBOD4CGwlegUHPRAyBRWGPP2WgEHoT2FGGejMKV6tLuvJc5fjFhC0OVlXDKkcAdmgPLxh40MDgLloQKp4Vxw6QHIhSA2QzuQMmrYjY60KZqTQCqlodFK4opAzQrPQAx8lxU9QlA/nDUkrK3eTKoycIfEABagPYL+NMDGiABZxIBOFP4A4VCQK0ym4dkz38CYIvtRywB0ABQgB7oBZgGEgYdQkn8hEkYbPTNmgdbNJ9TV5MmoWbDXutdpy60vHWrwfzlq9d4rLgxrWzTJrdNV254HL51507q1juBK+/47r+VPH+98/r1rhtP7nRduMht0SJx5W7ZpkthY5a5rbrru3Cp69KVXhd+Odtv+W+4m+Zyph07ZnXg9hVM3/Tr+erMwoDtM7Y6Y3z/AegZvfBvkz0Xt2r7UXVkY3FJdnPoOiplqc9Nbujm+PRTd75oe7ObY28ubdVbh8ZOaKUF30rHlX3dxhnfjHNLfPEODgkMLNGJgXaPFlSOtfH2C9JqLmTfYas/ihvNc3xc7U3F/3qG/fsa9naHSqdQVVzmXw4AApCM29P82CuTXfY3o5QvAR5+WNQbgBeGBSEA8qI0AejRABCgJv9/BvLlARkCAMQAmvjq5xAbMkxcAK24ZaQjB0JZABth0AJ7G2kNWw7SkkTnaYW/77QOz7jSenwT/8u2pKYWbSrNk4G6uEJEoniJEvhr4OqEaMrCUEQdBhVzcoCIAhZ0pTKYiHCdIaQxNcWJ0wmFrix7We2oZAeoshXF0M45Q4HOdsRRleEpF3ieSIFfY4fqX7qwCDuGkljxaVezVOmYaKl2ZSVj7ZRrxIKxU0kuTW5Gggygbi//Uj8HBkqDTFnSQMgWCS6Z2nokDqBqXk6iuLBHfP0flC/7bhwMrt5PxhVOZxQAAAA=) format("woff2"); font-display: swap; unicode-range: U+4E03; }
+@font-face { font-family: "Chup Hanja"; src: url(data:font/woff2;base64,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) format("woff2"); font-display: swap; unicode-range: U+6563; }
+@font-face { font-family: "Chup Hanja"; src: url(data:font/woff2;base64,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) format("woff2"); font-display: swap; unicode-range: U+516B,U+5BC6; }
+@font-face { font-family: "Chup Hanja"; src: url(data:font/woff2;base64,d09GMgABAAAAAAWcAA8AAAAACcAAAAVGAAMAgwAAAAAAAAAAAAAAAAAAAAAAAAAAGYFSHCoGYAA8EQgKiFiGQgE2AiQDCgsIAAQgBYNqByAXJBgIG5sHUZQwTibEx2K6rQOZgVzDkCQZhgzL8kAEX/vpvrsijWfhKxEUACqRiXFFJyosysaVbf4P7+n/SZqmE8oxI9F2YpZdiEkzCBdE8XUfyJ8/m+7j1o3ZcVvAkSayyx4VbTfPOo4bMJA8oD/r9H2eUN0CnM211IqnOBlwQOvRt7sSQAOZShh8Yio9HxyPNpMtEHxG1jZD8Lm0rREcr6RtUnC8llJtEAwHSDBWbDk6AwfIMHqM8O2CkEDSO6QowQhhF0d1smOd+sWEfZDtrW3h8rsiMXW6mNe2FHhsqm3iyBkaBgxAfxDDAMX/wNdr8lOcwgWpnIqB+fFT7PKNJJCa6/B6g+jK/EQRwMhSRSbN6ShKoKYUBBCA1Jf+RG+ykKgW9OBAtiGMM6pTECgIn5TYT67er7ZBAAiIUtcBA0AON4M4A3FbRBhgobCazE7LTWeGcDzqW+s2t/TKt0obucXr+jct3dp7zZ6e4N9Tc67VmEZjN6G0V96F+8zKNX/2gn3/XY3GelmjMb/36JL9xJMbZuxRAaN7XpPETovG1aGKPmH/pAMzqctclgwqxezFhxdFF1Uhvb0S+p7jJaVSaTn4XKVxY4d3CxlWxLKiXbCrV8DuFioUSK8hJ7iyWyFiZhdnBQxTyPTQIkWfOTO4deKc4wN1olqZP6G0p2l+7KPTk4JpjSaIZUVsv4BVCBfMvMbvnNL+whur85rg9MMAW1H/+pjruXv+U3OOu23KFKLp8w6MZ4mZjs6600VMm2jy/mUJfc7RAKtz5Jz9hDJwdnBB3LNKRxldpeTETk+Syw7MrOCc0mJgxJk5f1F0XuXC9NZNKf3pCb6p090Iu1uHpvm0gBH1rIin7ztMHg0Ssv2iYU013cOfYN1xUPVL1Z+fjYTG2iyckZGQfVR38HZn7P8Cwr2jzbLT95sX/LbVoMY9KikrCd9hulP9UaxWoUmSD+2/Z9H+flvIorjm1oJXmmvOuViLUn5uos2jIhtSN/NQqXiUQD8p1xF/+OuPY3o1Zb1k4tmfAsc26B2wrNbhZVWt3HZYXMiJF0fmx9veijXFnbJNK/EyIMPijKJ17Av9XNz9/FA0wIbD08PFc5bWPAPe5obRW6CD4/qYd8npCoeSvxUDXGmOYaS+CecChH9g7lJtGlJu4lOIvuBVcn+Mxq+Q/+y+cPjqbqfOc1RyOpqP8E1CuW70Kb7IFIF2SUFgV7zpywOvsgVxaOzaOSNxbdqAQUj89E+r6Skp+OH82gVn98PJ40Wjt8dud3xYncBltRPxaH/UFKZapthlY6T6FS48L/s4Bif2btJ5cMbZgfchbywm76Ny/Q/efZUGljxJ3Mbqb+E3pqh/d4nlCDWX4L85Hs3/5ng5w/dRHqaNYrLnetLA+GH52IvX3h0/xFAFbo0RM/wy3ubhUyk3/U8dT4mklwEggGzv8lRMa5Vh+H9DzhXA8yfbAfioZ4YAClV+nauAOihAgJpS9QPgwBrsgGA1xV/TwxmF0e/ium8HvtWgDgdS0wg8AjGJMDKVRBm4kOTwdS+JIfyW5DILYRJnFd5kBgIjU5x2HTYjNarXgELw5T1JfBDyNahFKNGtSSNCNlJ7U2vJzS/H6EZp0I7UheAMc4nSoUsoL17qNRrZdZPxJNeuVYHSoM3dkqrTLoYodTwwD2du5hV43SWF7AxSjXIv1evWQorkx5N32qNh0sQrEnaLLls8aDrkNoLUQrUlQWNy60SQ+aGnl692kT9cuQMlgieo2sKzSFTfkyVROg4uWAzw1R4dkL+qXq5cBzOWkftfGQilUmQAAAA=) format("woff2"); font-display: swap; unicode-range: U+4E5D,U+4E94; }
+@font-face { font-family: "Chup Hanja"; src: url(data:font/woff2;base64,d09GMgABAAAAAAPEAA8AAAAABsAAAANvAAMAgwAAAAAAAAAAAAAAAAAAAAAAAAAAGYFSHCoGYAA0EQgKgmSCMAE2AiQDCAsGAAQgBYNqByAXJBgGG30FCD4MbyyDeggEUeM0mLIj25Q6creQo+78WuP+V+Lha7/Xc3dffpAVCxWh0EWyAiD/ZWA8sIqqEVX15Dq+wqQu4PNv93aHAfRCcj7xJnKVDq7gKlW2h2uV2+b0K0Auznc/0EACxEAzCbOgiXU+5LEEpjlE8TrclBah/G1OdWl7egWBJ7UgxLYyPX17fJPPb0e42Q5ogCOY0Qts5xtYQbayLrHExllucCQBQoBBmCaYjnodvCdiyP/QuXRnsw0wGgc60glVfPKJfESTPP+LZFsKPbiXuWuWkd+VJGldSx4+b28lQJUpY3jieF1LD+JWFjYDCjaGSj0KNtsmLeJ22qZJxO22qQkFREDCCxclzo4SIOO58uRrVQjCpM/ii4I/fktSTUkv/TNhGDaz0cSUTwKByDaa+6OQwGwx1IiTgGX57s4TAvHA14MjFPldNFRAumQLMNFPjnlkRT2QakUAsCq5Jsb7geHJSnsp1/+P4pwxEEDqSz/RSwQJZNCGw6iYR0CRysDkyP+L5Nt3CMBlZrcIkAAFKIETcIXEU4EpOLhCYnA3cWjYtTY8pBVKA26Vhb1Q61p79dOnvfBryXIC5T98zGv0YPk+OD5hhDtvvY/76eXQ7ffpP6sx59bJtQ7Hu12p+5vedzegfKMcpbnqQPnBaJF+jWqbeqhf1bPwhv9fElWhzsSpbNoZ/nSQ/tAoWdpoWk94HfbMYqz7oRvoqVKzW1xNf6L7/1dvRjzT2eG0TAzvuKJFXW+rg/J7n6OPYwqhXBEZrQ8W515Acw87YnF1GNfbkDh30dHD0St5/vw28JFjqxtqzP6CMAAIkG1c7JL3aEz9r8rcI/x93Qf+GbHAV/PNAJSwgIDi/N+xNTL/EAAwxZelST0YkEgEbkNdVUWFwxROgFdGLMPTNcty94TlZHnB8ohvrCA4/FlReGT8P3d50YZqZhZzbLTUNCgiS4YsmYgeGkrEIJmOFtHBxkxHSUIRlWSUhpmNHZFAg6Is7IqkS6emRWnIpqSRmBmla6ZlIqMmqZiZUCqTJJSZzZx0em9iDHGrSVpdi9RkBpNssqXJiF5drFmNfsXF2BuQWhv7DiIV9lGe5WsD9hBSG/6Nb7DITmKjZUHZpTlDg7RDgbqoXZ0WHFD8siG50YR5+yQ/2tiaxebnb+PHgtcJAA==) format("woff2"); font-display: swap; unicode-range: U+5341; }
+@font-face { font-family: "Chup Hanja"; src: url(data:font/woff2;base64,d09GMgABAAAAAAPsAA8AAAAAB0QAAAOXAAMAgwAAAAAAAAAAAAAAAAAAAAAAAAAAGYFSHCoGYAA0EQgKg2iDCAE2AiQDCAsGAAQgBYNqByAXJBgGG9UFUVRQYiF+JJhufpQiSepUahTevOHs+Dhc4j8R1O91e3cvndLGgxKlufhIWlcigzD4aiQeoTMexuO/AXXmLLIHGi+jba4SgmdBXc75uU4TyKgxSlJVQ7e7FOH7GQilN/+X0zvegGPjvwM7pbXo9DZobVtLLMoDynvZ9EDSLPBAYes2U7ARdAhhpQodT3clwFC2lxzmxF+9QevqhwFs7tD0YXMvIhdaTyIS0HoWFMEGA0g0ddr0jWEAhSZKkqxOBCVE3gfRDYImj37IsbQ2T19MWAfGYRRO2xhWhEbjSlhCQDQ2jukzRIaJ8k7VTTTQ/T8UaHWVGAEL8oVMBJjyQ3GKWQQAcsJAiaFu05MnwMHsL1elKv8PAm1OaAICyB3yJ9jGgAQFtlAIltM0QWsmYLb4/78DW/QRQECYQWFAAtjAALzy30AtPWSj9CIvfybQLsYkp4impiQXsRITxZJbJtjyU1PyKxxNXGY5sVGWvVP5Isf3PCe2C52dsuytW+WX+dprPPWpdTW9rjBJ+rgpkXW+A58fN3/pyhG5TSdiN3Spsy/aDg8LbzHrnJBd4CitXzmhuJ9nvJWn3bWmvP+87hGu5grHdlh+ii27jc/XnptT3sjRXejUwipX1RQE8PZlPjK+ZPx8tuLsrbUd1IpTb20deabK+5+Cazfr49qdyDORP8WjuCTxOtE60cCY6bs1ZWTPvV6RUBoEJWagMxVyNYjJJkjhrEN/f95XcxI7Q3ZXyYp9iBfOLRC7TaUKPCZ9bp2qz7o7qZl7ce8HSOtILzsyIowkfNlZ+vqMXoTkt6dC8YSKYlDn1E+TfObKHqfweDJqdONqkE2wdnIkXlse9GQNO+UKqjBp5O0eWBfrrCfZznqQLtoAgACl520wZkOGhOtXQYp6AbB4P50A+BWY1APqh8oA6CMBAW3+7wHU34FVEKBpxhdKfDCDwgAWMJz3DeVTEE0I8AWTJ0hi8yRxB3mKtfM8TdM3nkU55HmGeli+PnH2EY6DWOIHuWwOwlmzZM2KplgOE5dE8ri4SCjmMekI50UijhjKcIYKEZLI7FiwUMBFHJJmJEcsNBbCFZGIYIlFiEXQkRj6GQee76YgDyO4LrtsUkBAc+Ys0+51EeLoad/tK0uGGO5yGUf6YJYUucnN8SATuB5efm0NHXKNASEaOU0DoyJh+wkjnKkUgG4B1rQ71kD8/xOlXsjGkNJYlU8mis3wKQA=) format("woff2"); font-display: swap; unicode-range: U+56DB; }
+@font-face { font-family: "Chup Hanja"; src: url(data:font/woff2;base64,d09GMgABAAAAAAN4AA8AAAAABrgAAAMkAAMAgwAAAAAAAAAAAAAAAAAAAAAAAAAAGYFSHCoGYAA0EQgKglyCGQE2AiQDCAsGAAQgBYNqByAXJBgGG2YFAB6Dbdv4DBhishmiivHRCOr30713SUroCIxHBzQewVbXohFRNbaqRtW3cUWd78O7me8D4USMUxVCVD4131Rtq4/teHPrUwJx6Jr6Z2//gNH4D/ikL5qBsQ04osVG8wHN1paWQgP3qbPVBXaBQpDa9QAfH39KgE5KMzj8akvXEFKOFztMKDt3qI0ouxAteqRcixYRKTcitaAMDyg4sRKk2AYekDje/AVbBSICKd+QCicUdylplDJL/zFhFQ6r2RJPOgOEQ1vhHA2hgUXN0C1FGiaO7et1SzgOqFygC9TyXWyhgPJYxgBrz9tjDwXRCpQeHiCkU6211VFgcXND/yprc0HtPgRAAGWG+Y9pPCggwSgWAZ8jgFopgc1nl2sIrt6CACbRP+MJKIAa6ADn4A4knzqmxtIDCcXEzYefmPSempzQK8bGfCaWnvlScupWyi285sunoXOPHkWu91r/lvz669f1w7t3h518+fbhxI4bL5JufEraccrz1KMEJ4IXGrpr3+5zofsOhZ6+mbzzZMjJ16m7T4cdtEpVZghvPIvZ//3/H82KhvgLGztSvo7K6FN7w19F5ffiHfUKXeHpvvfTbJ9E3o6pkgNvVixi2LDEyH97vY83Dq2yjrtDI12J/WfNUXe39Nv7PK42r/j5p/pvSVj149ha5daNbWyJra97oNbj9vN7uu6DjayqTSB2tzajQIDQygMgQFr7x+T5eN+v6rd7svPA+9duG8Bnx84FgHzNWUADAwio3be/Q7YslhFAUuJXi8sQjcgoBTAY5zppsEjNA/ACXDTh7xTN8HWLZhV4QXMEf2iFyAilebGR9yJfJdGDRlY2iznoaelQggJ5CuQTDNECNX+czEBv9lmbViRq0v2dejJKx8rBSZBGh6JsnCrkyqWlt/qeTCmHxMosVyc9Cxkl0rCyoDREEuovt1hu5Nn0HPjdRHoDx7RkJiKHQjny8u6u1KnJqMqhnFmQPQf7XCTMZIS6Jluf3YwQZQzfg+s/5iRx0LOhnHK8JiY5VQJtU68WXVgkWx1QoDYGQf7b3jnf1xZgUdq+GSveRuEP) format("woff2"); font-display: swap; unicode-range: U+4E8C; }
+@font-face { font-family: "Chup Hanja"; src: url(data:font/woff2;base64,d09GMgABAAAAAAPYAA8AAAAAB1gAAAOCAAMAgwAAAAAAAAAAAAAAAAAAAAAAAAAAGYFSHCoGYAA0EQgKg3yDCgE2AiQDCAsGAAQgBYNqByAXJBgGG9cFCI7CtrUzAeFIkjIPQoqHr/1+5+7uN8SnQ2raLJFVUnhDqJApxad7ZjpRvK0PvKe9cHK3c0axmgpnBzHT37FH8pe4ulT/+Ctg6fjzYK/USrqWDlKqtQYYkHiA3ndi8SoUC3hANebW9EBFUBhIrLGOIdKjz7uPEqBLpg2Nnc8rqYHf1jijGgl7xg4VEvalWgX8jqRaKfyOpbwWCVhAQhvJi5/lWEBGs+XI1VSEIYj0HERt0EToA3mnLO3z/0w4h1Gn0UaaByEPbFkp168YcGMH+/gJQEZl7MlGDzRQ661AyZeIpWAgnZANgAV8FauIinwg9bMQdNe0hfl6YHrZqryV0v9voDQEBwggTZE/wSQWJJDBBAoBLY0DZZiA5d7/WnU7/xFATGj3WAMSoIAuOAUXkHppoQolHpAe7ElY2LFNzbYtzU0KpqHBrmmCMOAqmP369on65lsL85HWJzLv8xHc+0Xz74gnxAiCq7DWz7xtaJ9Z1L/OrbfXbe/9+PX7/e/fr+3vdz9/t+k2UyOsjcyE5Fi3Vav3ig7etVlwP99eWr/X60m2Ye18677s/Me7BJH52tDzVgud+HUXfXMaxN/in+9WJmV5bpnsysSZfA9z0pD1JyHltmzF7H37blNfrJ+nudvqnfRTP0oI5xxHrxrHEC3FW2odr1auyPz6LXeMx8kJ4vCzwhnpa0lVmQVfdbZCzJxBa8e4qXqlPGTck0JyA7GGzbU5OWbnTsn5Pnqwbnsp0xHpmeN6st02PmEM+ypCzHna/TB9NzIFznElsfTpXL8TI+xjupin0m8y2cmsRcd+5ZnIpcsU7OBpqpmK847TARAgm7EysOes2CHlazdTHwBe3vr1AK+dXl+AfEeJAW0kIKA0/14ALst0AgRRSfEll30RlzoLMMAKXOvqRCGKFeAchkRwZJZI9vZJlChnJBrnm8QYGiKJNTIinmMvLsqQTUdvHCOFLt14nCgRokTi1CioQ9uoh5IirnBEOnR0kE84Uw9eNx0jE04AC+LpmSQJF66LwmgNWCaMnI5GuGIKWgYs1UlHi9dJSo5nNsYJD98P3ENbSkqhCurSQ03KKFqYiN1nkxXLUS+5er4joW059xjXKnU6zsooNtzngtbnL38DyETOSEGPZxJGrqiFHYq6frBcnhIUQD0TRUzHCIjvf7b5Q7kYTsZm/bfJhCG5AgAA) format("woff2"); font-display: swap; unicode-range: U+4E09; }
+@font-face { font-family: "Chup Hanja"; src: url(data:font/woff2;base64,d09GMgABAAAAAAM8AA8AAAAABmgAAALmAAMAgwAAAAAAAAAAAAAAAAAAAAAAAAAAGYFSHCoGYAA0EQgKggyBYQE2AiQDCAsGAAQgBYNqByAXJBgGGy4FIB6H6XZGNkmSnH+Kh2qve7t3qWV8olwCuCZkL0ZmUALjMZrxMD7++/Rt2vtASEWEqgqN0jghK6o3Mz2bnnZ6W7VE5Pyf/3PpZsMBRuNAp9Sh3wY2m0VdAB7IEVY+v3fgLXyAWupmGfwWkYDfNe0w3ksJ0DVmGIM9qm7sRPTNVFGP3AdRpUPuI28UEP3CG3lEv/KSEblYQGKECBdtHVhAwXDixsscEP5IvgFpgOGDeVKox9Kw9IsJ0xBNBqOceDzsB61FSs8JIExBQF+0WJSM62J0lh8GaAa4upYHZA1kkF9UL+B4ORtxjvSoAXLAArQuuC7HRz3A5gzN6M//gLojHCCAXFM/ASssSFDAEo2AJQYHKgaBM/8fghMEBLDJ8TkOgARU0AYn4AZSlhZSaV6ukMid2f4Bp8GBfkHW2+vcP33TBq/Hjzs3bfLZgDl4+LBy17lzDsv2+Mxo7qY8f0vg/Sc9e8/GPHnStdx3s/fyzUXCPhs3eu/eHbV7P0b2Iz/fbcsvDzsEbFveAsmGXreUfxwUzrp4tVef6wtvgVYSH07OUKVyyfGyZ5eHs3vJ0il/d8iHcwxrdkyZS1fI2k+2DjCHmWaKltuXMuZUy0dL6Zv12s1JSVkABCjm+/zyqBhxLfxqR9MTAL/vN5sB/uQbowDKDz0CaKMAAXX37y1Q/h9MAEGQ8QWzShCQCskka7mpS41Gqj3gG9jShJs9NMXFGZqW7hbN4HyjZQLCh2aFROr/c5EdzahgYjaVSKChJeGkS5UuDaeTlgqnj804AaeVyGScioKEU8ZGomUisuLE0pJIzKzypUihIZBo2YxJpmBikKKBwMhGwlMzMZKo8RQkJqKpUoSH41zgN+EJ2ldp2OjxRBmSpbpdLNCgUo+Cpn0yJqnXmxzHddBNFZIrODfEiXQwXR/+KisFkcBMYpVsFOglBwlr3rBFtUY0QBPSMR9TkP0/J3qizoK7KcUMCEgRl0nsBQAA) format("woff2"); font-display: swap; unicode-range: U+4E00; }
+/* Layout: 한 화면에 한 장. 한지 위에 먹빛 남색, 방은 밤하늘 카드로 넘어간다. */
+:root {
+  --paper: #ebe3d2;
+  --cloud: #06293a;
+  --cloud-soft: rgba(6, 41, 58, .2);
+  --cloud-hover: rgba(6, 41, 58, .34);
+  --paper-2: #e1d6bf;
+  --ink: #14233f;
+  --ink-soft: #55607a;
+  --line: rgba(20, 35, 63, .16);
+  --cloud-off: #f7f2e7;
+  --sky: #2f5f9e;
+  --night: #102040;
+  --night-ink: #ece4d4;
+  --f-display: "Song Myung", "Nanum Myeongjo", "Batang", serif;
+  --f-body: "Gowun Batang", "Nanum Myeongjo", "Batang", "AppleMyungjo", serif;
+  --f-hanja: "Chup Hanja", "Gowun Batang", "Batang", serif;
+  --f-roomhan: "Chup Hanja", "Gowun Batang", "Batang", serif;
+  --step--1: .84rem;
+  --step-0: 1rem;
+  --step-1: 1.2rem;
+  --step-2: 1.5rem;
+  --step-3: 2.1rem;
+  --step-4: 3rem;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --cloud: #ece4d4; --cloud-soft: rgba(236, 228, 212, .22); --cloud-hover: rgba(236, 228, 212, .36); --paper: #0e192f; --paper-2: #15233f; --ink: #ece4d4; --ink-soft: #a7b0c4;
+    --line: rgba(236, 228, 212, .16); --cloud-off: #1a2946; --sky: #93b6e6;
+    --night: #08122a; --night-ink: #ece4d4; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --cloud: #ece4d4; --cloud-soft: rgba(236, 228, 212, .22); --cloud-hover: rgba(236, 228, 212, .36); --paper: #0e192f; --paper-2: #15233f; --ink: #ece4d4; --ink-soft: #a7b0c4;
+  --line: rgba(236, 228, 212, .16); --cloud-off: #1a2946; --sky: #93b6e6;
+  --night: #08122a; --night-ink: #ece4d4; color-scheme: dark;
+}
+
+html, body { min-height: 100%; }
+body {
+  background-color: var(--paper);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .4 0 0 0 0 .35 0 0 0 0 .3 0 0 0 .09 0'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)'/%3E%3C/svg%3E");
+  color: var(--ink);
+  font-family: var(--f-body);
+  font-size: 16px;
+  line-height: 1.7;
+  word-break: keep-all;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+}
+.app {
+  max-width: 30rem;
+  margin: 0 auto;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  padding-block: 1.25rem 3rem;
+  display: flex; flex-direction: column; gap: 1.5rem;
+}
+.top {
+  display: flex; justify-content: space-between; align-items: baseline;
+  font-size: var(--step--1); color: var(--ink-soft); letter-spacing: .08em;
+  border-bottom: 1px solid var(--line); padding-bottom: .6rem;
+}
+.top b { font-family: var(--f-display); font-weight: 400; color: var(--ink); font-size: var(--step-1); letter-spacing: .2em; }
+.top .tri { display: flex; gap: .7rem; }
+.top .tri span[aria-current="step"] { color: var(--ink); border-bottom: 1px solid var(--ink); }
+
+h1, h2, h3 { font-family: var(--f-display); font-weight: 400; margin: 0; text-wrap: balance; }
+p { margin: 0; }
+.stack { display: flex; flex-direction: column; gap: 1.25rem; }
+.center { text-align: center; }
+.soft { color: var(--ink-soft); }
+.small { font-size: var(--step--1); }
+
+button { font: inherit; color: inherit; cursor: pointer; }
+button:focus-visible, [tabindex]:focus-visible { outline: 2px solid var(--sky); outline-offset: 3px; border-radius: 4px; }
+.btn {
+  display: block; width: 100%; min-height: 52px; padding: .8rem 1rem;
+  border-radius: 999px; border: 1px solid var(--ink);
+  background: var(--ink); color: var(--paper);
+  font-family: var(--f-body); font-weight: 700; font-size: var(--step-0); letter-spacing: .04em;
+}
+.btn.ghost { background: transparent; color: var(--ink); }
+.btn-row { display: flex; flex-direction: column; gap: .6rem; }
+.link {
+  background: none; border: 0; padding: .6rem .2rem; min-height: 48px;
+  color: var(--ink-soft); font-size: var(--step--1); letter-spacing: .04em;
+}
+.link:disabled { opacity: .35; cursor: default; }
+
+/* 입구 */
+.title { font-size: var(--step-4); letter-spacing: .12em; line-height: 1.2; }
+.eyebrow { font-size: var(--step--1); letter-spacing: .3em; color: var(--ink-soft); }
+.intro-lines { display: flex; flex-direction: column; gap: .9rem; }
+.quote { font-size: var(--step-1); font-family: var(--f-display); }
+.walk { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 1.4rem; border-top: 1px solid var(--line); padding-top: 1.4rem; }
+.walk li { display: flex; flex-direction: column; align-items: center; gap: .4rem; text-align: center; }
+.walk h3 { font-size: var(--step-1); }
+.walk p { min-width: 0; }
+.walk .demo { display: flex; justify-content: center; gap: .25rem; margin-top: .45rem; }
+.walk .demo svg { width: 36px; height: 20px; }
+
+/* 구름: 원본 SVG 한 모양. 빈 구름은 옅은 면, 찬 구름은 짙은 면.
+   바탕색 선 0.6px이 속 여백을 벌려 작은 크기에서도 소용돌이가 보이게 한다 */
+.cl { overflow: visible; display: block; }
+.cl use { fill: var(--cloud-soft); stroke: var(--cloud-bg, var(--paper)); stroke-width: .6px; stroke-linejoin: round; transition: fill .18s ease; }
+.cl.on use { fill: var(--cloud); }
+.qcard { --cloud-bg: var(--paper-2); }
+
+/* 첩 */
+.progress { display: flex; flex-direction: column; gap: .5rem; }
+.count { display: flex; justify-content: space-between; font-size: var(--step--1); color: var(--ink-soft); font-variant-numeric: tabular-nums; }
+.ticks { display: grid; grid-template-columns: repeat(22, 1fr); gap: 3px; }
+.ticks i { height: 3px; background: var(--line); border-radius: 2px; }
+.ticks i.done { background: var(--ink-soft); }
+.ticks i.now { background: var(--ink); }
+.qcard {
+  background: var(--paper-2); border: 1px solid var(--line); border-radius: 6px;
+  padding: 1.6rem 1.25rem 1.4rem; display: flex; flex-direction: column; gap: 1.6rem;
+  min-height: 21rem; justify-content: space-between; text-align: center;
+}
+.qno { font-family: var(--f-hanja); font-size: 2.9rem; line-height: 1; letter-spacing: .02em; }
+.hj { font-family: var(--f-hanja); font-size: 1.2em; line-height: 1; }
+.qtext { font-family: var(--f-body); font-weight: 700; font-size: var(--step-2); line-height: 1.55; }
+.qtext:focus { outline: none; }
+.scale-ends { display: flex; justify-content: space-between; font-size: var(--step--1); color: var(--ink-soft); padding-inline: .2rem; }
+.scale-row { display: grid; grid-template-columns: repeat(5, 1fr); gap: .3rem; }
+.cbtn {
+  min-height: 56px; border: 0; background: none; padding: .3rem 0;
+  display: grid; place-items: center; border-radius: 8px;
+}
+.cbtn svg { width: 100%; max-width: 60px; height: auto; }
+.cbtn:hover .cl:not(.on) use { fill: var(--cloud-hover); }
+.cbtn .n { font-size: .72rem; color: var(--ink-soft); font-variant-numeric: tabular-nums; }
+.qnav { display: flex; justify-content: space-between; }
+.hint { font-size: var(--step--1); color: var(--ink-soft); text-align: center; }
+
+/* 셈 */
+.brew { min-height: 60vh; display: grid; place-content: center; gap: 1.2rem; text-align: center; }
+.brew .drift { display: flex; gap: .4rem; justify-content: center; }
+.brew .drift svg { width: 47px; height: 26px; animation: drift 1.2s ease-in-out infinite alternate; }
+.brew .drift svg:nth-child(2) { animation-delay: .2s; }
+.brew .drift svg:nth-child(3) { animation-delay: .4s; }
+@keyframes drift { from { transform: translateY(2px); opacity: .5; } to { transform: translateY(-3px); opacity: 1; } }
+
+/* 방 */
+.result-head { display: flex; justify-content: space-between; align-items: baseline; font-size: var(--step--1); color: var(--ink-soft); font-variant-numeric: tabular-nums; }
+.score { display: flex; align-items: baseline; gap: .4rem; justify-content: center; }
+.score b { font-family: var(--f-body); font-size: var(--step-4); line-height: 1; font-variant-numeric: tabular-nums; }
+.score span { color: var(--ink-soft); }
+.ruler { display: flex; flex-direction: column; gap: .35rem; }
+.bands { position: relative; display: flex; gap: 2px; height: 10px; }
+.bands i { display: block; border-radius: 2px; background: var(--line); }
+.bands i.on { background: var(--ink); }
+.marker { position: absolute; top: -6px; width: 2px; height: 22px; background: var(--sky); transform: translateX(-1px); }
+.band-labels { display: flex; gap: 2px; font-size: .78rem; color: var(--ink-soft); font-variant-numeric: tabular-nums; }
+.band-labels span { min-width: 0; }
+.band-labels span.on { color: var(--ink); font-weight: 700; }
+
+.roomname { text-align: center; display: flex; flex-direction: column; gap: .2rem; }
+.roomname h2 { font-size: var(--step-3); letter-spacing: .15em; }
+.roomname .han { font-family: var(--f-roomhan); font-size: var(--step-1); letter-spacing: .25em; color: var(--ink-soft); }
+
+.flip { width: min(74vw, 300px); max-width: 100%; margin: 0 auto; border: 0; background: none; padding: 0; display: block; }
+/* 안개 걷힘 (2.8초): 푸른 회색 안개 세 겹이 서로 다른 빠르기로 흘러 들어와 앞면을 반쯤 가리고,
+   그 아래서 면이 천천히 바뀐 뒤, 가운데부터 구멍이 열리듯 걷히며 흩어진다 */
+.flip-inner { display: block; position: relative; aspect-ratio: 1370 / 2079; border-radius: 10px; overflow: hidden; background: var(--night); box-shadow: 0 10px 30px -12px rgba(8, 18, 42, .55); }
+.face { display: block; position: absolute; inset: 0; transition: opacity 1.2s ease-in-out, filter 1.4s ease-out, transform 1.6s cubic-bezier(.2, .7, .2, 1); }
+.face img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.face.b, .flip.back .face.a { opacity: 0; filter: blur(6px) saturate(.6); transform: scale(1.04); }
+.flip.back .face.b { opacity: 1; filter: none; transform: none; }
+.fog { position: absolute; inset: -40%; pointer-events: none; opacity: 0; background-size: 100% 100%; will-change: transform, opacity; }
+.fog.f1 { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='360' height='540'%3E%3Cfilter id='f' x='0' y='0' width='100%25' height='100%25'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.007 .011' numOctaves='3' seed='7'/%3E%3CfeColorMatrix values='0 0 0 0 .84 0 0 0 0 .87 0 0 0 0 .91 0 0 0 1.9 -.55'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23f)'/%3E%3C/svg%3E"); }
+.fog.f2 { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='360' height='540'%3E%3Cfilter id='f' x='0' y='0' width='100%25' height='100%25'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.005 .008' numOctaves='3' seed='31'/%3E%3CfeColorMatrix values='0 0 0 0 .84 0 0 0 0 .87 0 0 0 0 .91 0 0 0 1.9 -.55'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23f)'/%3E%3C/svg%3E"); }
+.fog.f3 { background-image: radial-gradient(ellipse 55% 45% at 50% 60%, rgba(214, 222, 232, .7), rgba(214, 222, 232, 0) 75%); }
+.can-clear .fog { -webkit-mask-image: radial-gradient(ellipse 60% 55% at 50% 58%, transparent calc(var(--clear) * 1%), #000 calc(var(--clear) * 1% + 45%)); mask-image: radial-gradient(ellipse 60% 55% at 50% 58%, transparent calc(var(--clear) * 1%), #000 calc(var(--clear) * 1% + 45%)); }
+.flip.fogging .flip-inner { animation: fog-clear 2.8s ease-in-out both; }
+.flip.fogging .fog.f1 { animation: fog-a 2.8s cubic-bezier(.4, 0, .3, 1) both; }
+.flip.fogging .fog.f2 { animation: fog-b 2.8s cubic-bezier(.45, 0, .25, 1) both; }
+.flip.fogging .fog.f3 { animation: fog-c 2.8s ease-in-out both; }
+@keyframes fog-clear { 0%, 42% { --clear: 0; } 100% { --clear: 115; } }
+@keyframes fog-a {
+  0% { opacity: 0; transform: translate(-12%, 9%) scale(1.05); }
+  30% { opacity: .85; }
+  55% { opacity: .85; transform: translate(-3%, 2%) scale(1.1); }
+  100% { opacity: 0; transform: translate(9%, -10%) scale(1.25); }
+}
+@keyframes fog-b {
+  0% { opacity: 0; transform: translate(11%, 6%) scale(1.12); }
+  36% { opacity: .7; }
+  60% { opacity: .7; transform: translate(2%, 0) scale(1.16); }
+  100% { opacity: 0; transform: translate(-7%, -12%) scale(1.32); }
+}
+@keyframes fog-c {
+  0% { opacity: 0; transform: scale(.95); }
+  32% { opacity: .55; }
+  58% { opacity: .55; }
+  100% { opacity: 0; transform: scale(1.2); }
+}
+.flip-note { text-align: center; font-size: var(--step--1); color: var(--ink-soft); }
+
+.spread { background: var(--night); color: var(--night-ink); border-radius: 8px; padding: 1.4rem 1.1rem; display: flex; flex-direction: column; gap: 1.2rem; }
+.spread h3 { font-size: var(--step-1); text-align: center; letter-spacing: .1em; }
+.spread .lede { text-align: center; opacity: .85; }
+.layout { display: flex; justify-content: center; gap: .5rem; flex-wrap: wrap; }
+.layout .slot { width: 3rem; aspect-ratio: 2 / 3; border: 1px solid rgba(236, 228, 212, .55); border-radius: 4px; display: grid; place-items: center; font-family: var(--f-hanja); font-size: var(--step-2); }
+.layout.face-to-face { gap: 1.6rem; }
+.slots { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: .9rem; border-top: 1px solid rgba(236, 228, 212, .2); padding-top: 1.1rem; }
+.slots li { display: flex; flex-direction: column; align-items: center; gap: .2rem; text-align: center; }
+.slots .k { font-family: var(--f-hanja); font-size: var(--step-2); line-height: 1.2; }
+.slots .t { font-size: var(--step--1); opacity: .75; letter-spacing: .04em; }
+.slots p { min-width: 0; }
+
+.next-step { border-top: 1px solid var(--line); padding-top: 1.2rem; display: flex; flex-direction: column; gap: .8rem; text-align: center; }
+.next-step h3 { font-size: var(--step-1); }
+.next-step ol { margin: 0; padding: 0; list-style-position: inside; display: flex; flex-direction: column; gap: .4rem; }
+.draft { font-size: .78rem; color: var(--ink-soft); text-align: center; }
+
+.enter { animation: rise .45s ease both; }
+@keyframes rise { from { opacity: .3; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+@media (prefers-reduced-motion: reduce) {
+  .enter, .brew .drift svg { animation: none; }
+  .face, .cl use { transition: none; }
+  .flip.fogging .fog, .flip.fogging .flip-inner { animation: none; }
+}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <symbol id="cloud-shape" viewBox="0 0 180 100"><path vector-effect="non-scaling-stroke" d="M33.58,59.04c3.2-3.07,8.58-4.23,12.29-1.54,1.15.9,1.92,2.18,2.05,3.59.13,1.79-.64,3.59-1.92,4.61-1.28.9-2.56,1.02-3.97.9,2.05.9,4.61,1.02,6.66-.13,3.07-1.79,3.71-6.15,1.79-9.35-2.69-4.23-7.81-5.63-12.68-4.48-4.87,1.15-8.83,4.74-10.37,9.6-1.28,4.23-.38,8.83,2.3,12.42,3.59,4.74,9.99,7.3,16,7.43,5.38.26,10.76-1.41,15.11-4.61,4.74-3.59,8.07-8.71,8.32-14.6.26-3.33-.51-6.4-2.05-9.22-1.02-1.79-2.3-3.33-3.71-4.61-4.23-3.84-10.11-6.53-15.88-5.76l-2.3.38c-2.69-3.2-6.15-4.61-10.24-5.25-1.92-6.4-1.15-13.57,2.05-19.46,1.79-3.07,4.23-5.76,7.17-7.94,2.56-1.92,5.25-3.33,8.32-4.23,3.97-1.28,7.94-1.79,12.16-1.79,3.2.13,6.4.51,9.35,1.66,3.46,1.41,6.4,3.33,8.83,6.02,2.69,3.07,4.35,6.91,4.48,11.01.13,5.12-1.92,10.76-5.89,14.21-4.87,4.48-11.65,6.02-17.67,2.94-2.3-1.02-4.23-2.69-5.63-4.87-1.66-2.69-2.3-5.89-1.66-9.09.77-3.07,2.82-5.63,5.76-6.66,2.3-.9,4.87-.38,6.66,1.15,1.28,1.28,2.05,2.82,1.92,4.61-.26,2.56-2.18,5.51-4.87,4.61-.13-.13-.38,0-.26.13,2.18,1.79,4.99,1.28,6.79-.64,3.07-3.33,2.3-8.19-.9-11.27-2.82-2.56-6.53-3.46-10.24-2.18-3.2,1.02-5.76,3.33-7.43,6.27-1.02,2.3-1.54,4.74-1.41,7.17.38,7.68,6.15,13.96,13.57,15.62,7.55,1.66,12.68-1.66,12.8-1.66v.26c-3.46,9.6-.26,20.61,6.27,28.17,3.2,3.59,7.04,6.27,11.4,8.07,3.59,1.54,7.3,2.18,11.14,1.92,2.3,0,4.61-.38,6.79-1.02l6.15-1.92,9.99-2.43v-.13s-4.1,0-6.4.38l-6.66,1.28c-6.02,1.15-12.16.9-18.05-1.02-9.99-3.2-16.77-11.91-18.18-22.28-.64-4.99.51-9.86,3.07-14.08,1.54-2.3,3.2-4.35,5.25-6.27,3.2-3.07,7.17-4.99,11.65-5.63,3.84-.51,7.81-.26,11.52.77,3.59,1.02,7.04,3.07,8.71,6.4,2.18,4.23.38,9.35-3.07,12.42-2.3,2.05-5.51,3.2-8.71,2.82-1.66-.26-3.2-1.02-4.23-2.3-1.02-1.28-1.15-2.94-.64-4.48.9-2.05,2.82-3.84,5.12-3.84,0,0,0-.13-.13-.13-1.15-.77-2.56-.9-3.97-.51-2.05.64-3.71,2.18-4.61,4.35-1.66,3.97,1.28,8.32,5.25,9.86,3.97,1.54,8.71.77,12.29-1.41,7.17-4.35,9.99-14.34,4.35-21.13-5.25-6.27-15.62-7.68-23.3-6.27-3.33.64-6.4,1.79-9.22,3.59l-.13.13h-.13v-.26c1.79-7.04.13-13.19-4.35-18.57-.13-.13-.13-.26-.13-.26-.13-.13,0-.13.13-.26,3.2-1.79,6.66-3.2,10.37-4.23,10.24-2.56,21.89-.51,28.94,7.94,1.79,2.18,3.07,4.61,3.59,7.43.13.13.13.38.38.38.9.13,1.66.26,2.56.51,5.51,1.54,10.11,5.12,12.93,10.11,1.66,3.07,2.56,6.53,2.56,10.11,0,9.86-6.27,16.39-16,16.9-.64,1.54-1.54,2.82-2.56,4.1-2.18,2.94-5.25,4.99-8.83,6.02-2.56.77-5.25,1.15-8.07.9-4.61-.51-9.6-2.18-13.19-5.25-4.1-3.33-6.02-8.32-5.25-13.57.38-2.05,1.02-4.1,1.92-6.02-1.28.64-2.05,1.54-2.69,2.56-2.43,3.59-3.33,8.07-1.79,12.29,1.02,2.82,2.82,5.38,5.12,7.43,2.56,2.18,5.51,3.71,8.83,4.74,2.94,1.02,6.02,1.79,9.22,1.41l12.68-1.15c2.56-.26,4.99-.38,7.55-.26,8.07.38,15.62,3.71,21.51,9.35l3.2,3.2c3.59,3.2,7.68,5.63,12.16,7.17.26-.13.38.13.13.13l-1.66-.26c-3.84-.77-7.55-2.43-10.63-4.74l-3.2-2.3c-2.05-1.54-4.1-2.82-6.4-3.97-7.17-3.46-14.85-1.66-21.89,1.15-5.89,2.18-13.44,4.61-19.72,4.74-1.92,0-3.71,0-5.63-.38-4.35-.9-8.45-2.56-12.16-4.87l-3.33-2.05c-5.12-2.69-11.27-2.56-15.62,1.28-1.28,1.15-2.3,2.3-3.2,3.71-3.46,4.87-7.68,8.58-13.7,9.73-4.23.9-8.45.51-12.68-.64-4.87-1.54-8.83-4.87-11.01-9.47-8.71.38-17.28-6.4-20.61-14.21-1.66-4.1-1.92-8.58-.26-12.8,1.79-4.87,5.38-9.09,9.86-11.78,6.4-3.84,17.28-5.63,22.66.26l1.66,2.18c3.46-1.28,7.81-1.41,11.14,0,5.12,2.05,9.86,6.66,10.5,12.29.51,4.99-1.66,9.86-5.51,13.19-2.18,1.92-4.61,3.33-7.43,4.1-4.48,1.41-9.22,1.02-13.57-.64-4.35-1.66-8.07-5.12-8.32-9.86-.13-3.07.9-5.89,2.94-8.07Z"/></symbol>
+</svg>
+<div class="app" id="app" aria-live="polite"></div>
+
+<script>
+/* ===================== DECK (판마다 하나 · 문안은 인쇄본 그대로) ===================== */
+const DECK = {
+  edition: 1,
+  name: '미우현첩',
+  intro: [
+    '오늘의 걸음에서 한 걸음 물러납니다.',
+    '첩은 덮인 것을 세어보는 자리입니다.<br>애써 아무렇지 않으려는 노력을 멈춥니다.',
+  ],
+  quote: '“무엇까지 함께 덮였는가.”',
+  outro: '억지로 무엇을 걷어내려 하지 않습니다.<br>그저 조용히 나의 하늘을 읽어 내려갑니다.',
+  walk: [
+    { t: '첫 걸음', d: '스물두 개의 질문을<br>천천히 읽어 내려갑니다.' },
+    { t: '두 걸음', d: '지금 내 감정의 탁도와<br>무게에 가장 맞닿은<br>점수를 조용히 새깁니다.', demo: 3 },
+    { t: '세 걸음', d: '점수를 확인하고<br>나를 기다리고 있는<br>다음 카드를 확인합니다.' },
+  ],
+  /* 구름 다섯 개. k번째 구름을 누르면 구름 k개가 채워지고 k점이 된다. 한 첩 1–5점, 스물두 첩 22–110점. */
+  scale: { low: '아니다', high: '그렇다', max: 5 },
+  chup: [
+    '예전에 다니던 길을, 지금도 그 길로 다닌다.',
+    '사진첩을 처음부터 끝까지, 한 번에 넘긴다.',
+    '그때 자주 듣던 노래가 나오면, 끝까지 듣는다.',
+    '그 시절 이야기가 나오면, 그 자리에서 잇는다.',
+    '예전에 자주 가던 곳에, 지금도 그대로 간다.',
+    '특정 계절이나 날씨에도, 하루가 평소와 같다.',
+    '안부를 묻는 말에, 막힘없이 여유 있게 답한다.',
+    '그 시절에 쓰던 물건을, 지금까지 쓰고 있다.',
+    '그 이름을, 소리 내어 불러본 적이 최근에 있다.',
+    '함께 갔던 장소에, 다시 가본 적이 최근에 있다.',
+    '함께 찍은 사진을, 최근에 열어본 적이 있다.',
+    '그 이름의 소식을 들은 날에도, 하루는 같았다.',
+    '특정 날짜가 다가와도, 하루를 평소처럼 지낸다.',
+    '그 이름이 화제에 오르면, 대화를 이어간다.',
+    '사진과 기록을 원래 있던 자리에, 그대로 둔다.',
+    '그 이름과의 기억을, 먼저 꺼내 말한 적이 있다.',
+    '그때가 떠오른 채로, 함께 갔던 장소를 지난다.',
+    '그 이름과의 기억 하나를, 지금 적을 수 있다.',
+    '그때 얻은 것과 좋았던 점을, 스스로 인정한다.',
+    '그 이름 이야기를, 웃으며 하는 순간이 있었다.',
+    '그 시절의 노래를, 지금 다시 꺼내 쓸 수 있다.',
+    '그 이름을 떠올려도, 하루의 나머지가 괜찮다.',
+  ],
+  /* 방 경계: 인쇄본 표기 그대로(00–30 / 31–70 / 71–110). 응답이 모이면 보정한다. */
+  rooms: [
+    {
+      id: 'milun', name: '밀운방', han: '密雲', min: 0, max: 30,
+      lines: ['한 번에 걷지 않고, 다섯을 놓습니다.', '덮인 하늘을 그대로, 보는 방입니다.'],
+      slots: [
+        { n: '첫 번째 구름', k: '일상', q: '요즘 나의 하루를, 채우는 것은?' },
+        { n: '두 번째 구름', k: '선택', q: '그중 내가 직접, 골라낸 것은?' },
+        { n: '세 번째 구름', k: '우회', q: '요즘 내가 자주, 지나치는 것은?' },
+        { n: '네 번째 구름', k: '반복', q: '지나칠 때 내가, 되풀이하는 것은?' },
+        { n: '다섯 번째 구름', k: '공백', q: '오늘 하루에서, 빠져 있던 것은?' },
+      ],
+      front: 'img/milun-front.webp', back: 'img/milun-back.webp',
+    },
+    {
+      id: 'sanun', name: '산운방', han: '散雲', min: 31, max: 70,
+      lines: ['그때와 지금을, 나란히 놓습니다.', '두고 온 것을 찾아, 세는 방입니다.'],
+      slots: [
+        { n: '첫 번째 구름', k: '과거', q: '그때 내가 알던, 그 무렵의 것은?' },
+        { n: '두 번째 구름', k: '현재', q: '지금 내가 아는, 오늘까지의 것은?' },
+        { n: '세 번째 구름', k: '공극', q: '그 사이 어딘가, 두고 온 것은?' },
+      ],
+      front: 'img/sanun-front.webp', back: 'img/sanun-back.webp',
+    },
+    {
+      id: 'janun', name: '잔운방', han: '殘雲', min: 71, max: 110,
+      lines: ['남은 두 장을, 마주 놓습니다.', '가려진 것을 꺼내어, 보는 방입니다.'],
+      slots: [
+        { n: '첫 번째 구름', k: '잔영', q: '그 이름이 나에게, 남기고 간 것은?' },
+        { n: '두 번째 구름', k: '자취', q: '내가 그 이름에게, 남기고 온 것은?' },
+      ],
+      front: 'img/janun-front.webp', back: 'img/janun-back.webp',
+      faceToFace: true,
+    },
+  ],
+};
+
+/* ===================== ENGINE (모든 판 공통) ===================== */
+/*ENGINE-START*/
+const HAN = ['零','一','二','三','四','五','六','七','八','九','十','十一','十二','十三','十四','十五','十六','十七','十八','十九','二十','二十一'];
+const SLOT_HAN = ['一','二','三','四','五'];
+function totalOf(answers) {
+  return answers.reduce((s, v) => s + (v || 0), 0);
+}
+function isComplete(answers, n) {
+  return answers.length === n && answers.every(v => Number.isInteger(v) && v >= 1);
+}
+function roomOf(deck, total) {
+  const hit = deck.rooms.filter(r => total >= r.min && total <= r.max);
+  return hit.length === 1 ? hit[0] : null;
+}
+/*ENGINE-END*/
+
+/* ===================== SCREENS ===================== */
+const N = DECK.chup.length;
+const KEY = 'chupbangdan.ed' + DECK.edition;
+const app = document.getElementById('app');
+let state = { view: 'intro', idx: 0, answers: Array(N).fill(null), back: false, date: null };
+let advanceTimer = null;
+
+function load() {
+  try {
+    const raw = localStorage.getItem(KEY);
+    if (!raw) return;
+    const s = JSON.parse(raw);
+    if (Array.isArray(s.answers) && s.answers.length === N) state = Object.assign(state, s);
+  } catch (e) { /* 저장소를 쓸 수 없으면 처음부터 */ }
+}
+function save() {
+  try { localStorage.setItem(KEY, JSON.stringify(state)); } catch (e) {}
+}
+
+function cloud(on, cls = '') {
+  return `<svg class="cl ${on ? 'on' : ''} ${cls}" viewBox="0 0 180 100" aria-hidden="true"><use href="#cloud-shape"/></svg>`;
+}
+function today() {
+  const d = new Date();
+  return `${d.getFullYear()}. ${String(d.getMonth() + 1).padStart(2, '0')}. ${String(d.getDate()).padStart(2, '0')}.`;
+}
+function topBar(step) {
+  const names = ['첩', '방', '단'];
+  return `<header class="top">
+    <b>첩방단</b>
+    <span class="tri">${names.map((n, i) => `<span${i === step ? ' aria-current="step"' : ''}>${n}</span>`).join('')}</span>
+  </header>`;
+}
+
+const VIEWS = {
+  intro() {
+    const answered = state.answers.filter(v => v != null).length;
+    const resume = answered > 0 && answered < N;
+    return `${topBar(0)}
+<section class="stack center enter">
+  <p class="eyebrow">무던함을 묻는 스물두 장</p>
+  <h1 class="title">${DECK.name}</h1>
+  <div class="intro-lines">
+    ${DECK.intro.map(t => `<p>${t}</p>`).join('')}
+    <p class="quote">${DECK.quote}</p>
+    <p>${DECK.outro}</p>
+  </div>
+</section>
+<ol class="walk">
+  ${DECK.walk.map(w => `<li><h3>${w.t}</h3><div><p>${w.d}</p>${w.demo ? `<div class="demo">${[1,2,3,4,5].map(k => cloud(k <= w.demo)).join('')}</div>` : ''}</div></li>`).join('')}
+</ol>
+<div class="btn-row">
+  ${resume
+    ? `<button type="button" class="btn" data-act="resume">첩 <span class="hj">${HAN[state.idx]}</span>부터 이어서 넘기기</button>
+       <button type="button" class="btn ghost" data-act="start">처음부터 다시 넘기기</button>`
+    : `<button type="button" class="btn" data-act="start">첫 번째 첩 넘기기</button>`}
+</div>`;
+  },
+
+  q() {
+    const i = state.idx, v = state.answers[i];
+    const ticks = DECK.chup.map((_, k) => `<i class="${k === i ? 'now' : state.answers[k] != null ? 'done' : ''}"></i>`).join('');
+    const btns = [1, 2, 3, 4, 5].map(k => `
+      <button type="button" class="cbtn" role="radio" aria-checked="${v === k}" aria-label="구름 ${k}개" data-act="answer" data-v="${k}">
+        ${cloud(v != null && k <= v)}
+      </button>`).join('');
+    return `${topBar(0)}
+<div class="progress">
+  <div class="count"><span>첩 <span class="hj">${HAN[i]}</span></span><span>${i + 1} / ${N}</span></div>
+  <div class="ticks" aria-hidden="true">${ticks}</div>
+</div>
+<article class="qcard enter" aria-labelledby="qtext">
+  <p class="qno" aria-hidden="true">${HAN[i]}.</p>
+  <h2 class="qtext" id="qtext" tabindex="-1">${DECK.chup[i].replace(', ', ',<br>')}</h2>
+  <div class="stack" style="gap:.4rem">
+    <div class="scale-ends" aria-hidden="true"><span>${DECK.scale.low}</span><span>${DECK.scale.high}</span></div>
+    <div class="scale-row" role="radiogroup" aria-labelledby="qtext">${btns}</div>
+  </div>
+</article>
+<div class="qnav">
+  <button type="button" class="link" data-act="prev">← ${i === 0 ? '입구로' : '이전 첩'}</button>
+  <button type="button" class="link" data-act="next"${v == null ? ' hidden' : ''}>${i === N - 1 ? '방 확인하기' : '다음 첩'} →</button>
+</div>
+<p class="hint">숫자 키 1–5로도 새길 수 있습니다.</p>`;
+  },
+
+  brew() {
+    return `${topBar(1)}
+<section class="brew">
+  <div class="drift" aria-hidden="true">${cloud(true)}${cloud(false)}${cloud(true)}</div>
+  <p>스물두 첩의 구름을 셉니다</p>
+</section>`;
+  },
+
+  room() {
+    const t = totalOf(state.answers), room = roomOf(DECK, t);
+    if (!room) return `${topBar(1)}<p class="center">점수 ${t}에 맞는 방이 없습니다. 첩을 다시 확인해 주세요.</p>
+      <button type="button" class="btn" data-act="restart">처음부터 다시 넘기기</button>`;
+    const span = DECK.rooms[DECK.rooms.length - 1].max - DECK.rooms[0].min;
+    const bands = DECK.rooms.map(r => `<i class="${r === room ? 'on' : ''}" style="flex:${r.max - r.min + 1}"></i>`).join('');
+    const labels = DECK.rooms.map(r => `<span class="${r === room ? 'on' : ''}" style="flex:${r.max - r.min + 1}">${String(r.min).padStart(2, '0')}–${r.max}<br>${r.name}</span>`).join('');
+    const left = ((t - DECK.rooms[0].min) / span * 100).toFixed(2);
+    return `${topBar(1)}
+<div class="result-head"><span>확인 날짜 ${state.date || today()}</span><span>${DECK.name}</span></div>
+<section class="stack enter">
+  <div class="score" aria-label="스물두 첩의 점수 ${t}점"><b>${t}</b><span>/ ${DECK.rooms[DECK.rooms.length - 1].max}</span></div>
+  <div class="ruler" aria-hidden="true">
+    <div class="bands">${bands}<span class="marker" style="left:${left}%"></span></div>
+    <div class="band-labels">${labels}</div>
+  </div>
+</section>
+<div class="roomname enter">
+  <span class="han">${room.han}</span>
+  <h2>${room.name}</h2>
+</div>
+<button type="button" class="flip${state.back ? ' back' : ''}" data-act="flip" aria-label="${room.name} 카드 ${state.back ? '앞면 보기' : '뒷면 보기'}">
+  <span class="flip-inner">
+    <span class="face a"><img src="${room.front}" alt="${room.name} 카드 앞면, 남색 하늘에 구름이 놓인 그림" width="720" height="1093"></span>
+    <span class="face b"><img src="${room.back}" alt="${room.name} 카드 뒷면, 자리 문안" width="720" height="1093"></span>
+    <span class="fog f3" aria-hidden="true"></span><span class="fog f1" aria-hidden="true"></span><span class="fog f2" aria-hidden="true"></span>
+  </span>
+</button>
+<p class="flip-note">카드를 누르면 안개가 걷히며 뒷면이 드러납니다</p>
+<section class="spread" aria-labelledby="spread-h">
+  <h3 id="spread-h">${room.name}의 자리</h3>
+  <p class="lede">${room.lines.join('<br>')}</p>
+  <div class="layout${room.faceToFace ? ' face-to-face' : ''}" aria-hidden="true">
+    ${room.slots.map((_, k) => `<span class="slot">${SLOT_HAN[k]}</span>`).join('')}
+  </div>
+  <ol class="slots">
+    ${room.slots.map((s, k) => `<li><span class="k" aria-hidden="true">${SLOT_HAN[k]}</span><p><span class="t">${s.n} [${s.k}]</span><br>${s.q}</p></li>`).join('')}
+  </ol>
+</section>
+<section class="next-step">
+  <h3>단을 펼칩니다</h3>
+  <p>카드를 섞은 뒤<br>카드를 펼쳐 놓아<br>맘에 드는 ${['', '한', '두', '세', '네', '다섯'][room.slots.length]} 장을 순서대로 뽑아 주세요.</p>
+</section>
+<div class="btn-row">
+  <button type="button" class="btn ghost" data-act="review">첩 다시 보기</button>
+  <button type="button" class="btn ghost" data-act="restart">처음부터 다시 넘기기</button>
+</div>
+<p class="draft">시안 · 방 경계는 첩 인쇄본의 구간을 따릅니다</p>`;
+  },
+};
+
+function render(focus) {
+  app.innerHTML = VIEWS[state.view]();
+  if (focus) {
+    const h = app.querySelector('#qtext') || app.querySelector('h1, h2');
+    if (h) { if (!h.hasAttribute('tabindex')) h.setAttribute('tabindex', '-1'); h.focus({ preventScroll: true }); }
+    window.scrollTo(0, 0);
+  }
+}
+function go(view, focus = true) { state.view = view; save(); render(focus); }
+
+/* 안개가 가운데부터 걷히는 효과는 이 기능을 지원하는 브라우저에서만 켠다. 나머지는 옅어지며 걷힌다 */
+try {
+  if (window.CSS && CSS.registerProperty) {
+    CSS.registerProperty({ name: '--clear', syntax: '<number>', inherits: true, initialValue: '0' });
+    document.documentElement.classList.add('can-clear');
+  }
+} catch (e) { if (String(e).includes('already')) document.documentElement.classList.add('can-clear'); }
+function liftFog(b) {
+  if (b.classList.contains('fogging')) return;
+  const swap = () => {
+    state.back = !state.back; save();
+    b.classList.toggle('back', state.back);
+    b.setAttribute('aria-label', `카드 ${state.back ? '앞면 보기' : '뒷면 보기'}`);
+  };
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) { swap(); return; }
+  b.classList.add('fogging');
+  setTimeout(swap, 950);
+  setTimeout(() => b.classList.remove('fogging'), 2850);
+}
+function finish() {
+  state.date = today();
+  state.back = false;
+  go('brew');
+  setTimeout(() => { if (state.view === 'brew') go('room'); }, 1300);
+}
+function answer(v) {
+  state.answers[state.idx] = v;
+  save(); render(false);
+  clearTimeout(advanceTimer);
+  advanceTimer = setTimeout(next, 380);
+}
+function next() {
+  clearTimeout(advanceTimer);
+  if (state.answers[state.idx] == null) return;
+  if (state.idx < N - 1) { state.idx++; go('q'); }
+  else if (isComplete(state.answers, N)) finish();
+  else { state.idx = state.answers.findIndex(v => v == null); go('q'); }
+}
+function prev() {
+  clearTimeout(advanceTimer);
+  if (state.idx === 0) go('intro'); else { state.idx--; go('q'); }
+}
+
+app.addEventListener('click', e => {
+  const b = e.target.closest('[data-act]');
+  if (!b) return;
+  const act = b.dataset.act;
+  if (act === 'start' || act === 'restart') { state.answers = Array(N).fill(null); state.idx = 0; state.back = false; state.date = null; go('q'); }
+  else if (act === 'resume') go('q');
+  else if (act === 'answer') answer(+b.dataset.v);
+  else if (act === 'next') next();
+  else if (act === 'prev') prev();
+  else if (act === 'flip') liftFog(b);
+  else if (act === 'review') { state.idx = N - 1; go('q'); }
+});
+document.addEventListener('keydown', e => {
+  if (state.view !== 'q' || e.altKey || e.ctrlKey || e.metaKey) return;
+  if (e.key >= '1' && e.key <= '5') answer(+e.key);
+  else if (e.key === 'ArrowRight') next();
+  else if (e.key === 'ArrowLeft') prev();
+});
+
+function start(data) {
+  load();
+  if (data && Array.isArray(data.answers) && data.answers.length === N) state = Object.assign(state, data);
+  if (state.view === 'brew') state.view = isComplete(state.answers, N) ? 'room' : 'q';
+  render(false);
+}
+window.claude?.hot?.snapshot?.(() => state);
+window.claude?.hot?.ready ? window.claude.hot.ready(start) : start(window.claude?.hot?.data ?? {});
+</script>
+</body>
+</html>
