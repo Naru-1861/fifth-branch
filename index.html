@@ -423,7 +423,7 @@ const DECK = {
         { n: '네 번째 구름', k: '반복', q: '지나칠 때 내가, 되풀이하는 것은?' },
         { n: '다섯 번째 구름', k: '공백', q: '오늘 하루에서, 빠져 있던 것은?' },
       ],
-      front: 'img/milun-front.webp', back: 'img/milun-back.webp',
+      front: 'milun-front.webp', back: 'milun-back.webp',
     },
     {
       id: 'sanun', name: '산운방', han: '散雲', min: 56, max: 76,
@@ -433,7 +433,7 @@ const DECK = {
         { n: '두 번째 구름', k: '현재', q: '지금 내가 아는, 오늘까지의 것은?' },
         { n: '세 번째 구름', k: '공극', q: '그 사이 어딘가, 두고 온 것은?' },
       ],
-      front: 'img/sanun-front.webp', back: 'img/sanun-back.webp',
+      front: 'sanun-front.webp', back: 'sanun-back.webp',
     },
     {
       id: 'janun', name: '잔운방', han: '殘雲', min: 77, max: 110,
@@ -442,7 +442,7 @@ const DECK = {
         { n: '첫 번째 구름', k: '잔영', q: '그 이름이 나에게, 남기고 간 것은?' },
         { n: '두 번째 구름', k: '자취', q: '내가 그 이름에게, 남기고 온 것은?' },
       ],
-      front: 'img/janun-front.webp', back: 'img/janun-back.webp',
+      front: 'janun-front.webp', back: 'janun-back.webp',
       faceToFace: true,
     },
   ],
@@ -512,7 +512,7 @@ const app = document.getElementById('app');
 let state = { today: null, view: 'ring', idx: 0, answers: Array(N).fill(null), back: false, date: null, drawers: null, opened: [] };
 const KN = ['', '한', '두', '세', '네', '다섯'];
 const SLOT_HAN = ['一', '二', '三', '四', '五'];
-const danSrc = (c, small) => `img/dan/dan-${String(c).padStart(2, '0')}${small === true ? '-s' : '-full'}.webp`;
+const danSrc = (c, small) => `dan-${String(c).padStart(2, '0')}${small === true ? '-s' : '-full'}.webp`;
 const danName = c => `${HAN[c]} ${DECK.dan[c]}`;
 let advanceTimer = null;
 
@@ -547,7 +547,7 @@ const VIEWS = {
   ring() {
     const cells = ZODIAC.map((z, i) => {
       const n = i + 1, [r, c] = RING_POS[n], pos = `grid-area:${r} / ${c}`;
-      const img = `<img src="img/zodiac/z-${String(n).padStart(2, '0')}.webp" alt="" width="320" height="320">`;
+      const img = `<img src="z-${String(n).padStart(2, '0')}.webp" alt="" width="320" height="320">`;
       return z.open
         ? `<button type="button" class="zc on" style="${pos}" data-act="enter" aria-label="${z.han} ${z.name}, ${z.open}으로 들어가기">${img}<span class="zl"><b>${z.han}</b>${z.open}</span></button>`
         : `<div class="zc" style="${pos}" role="img" aria-label="${z.han} ${z.name}, 열릴 예정">${img}<span class="zl"><b>${z.han}</b>${z.name}</span></div>`;
@@ -566,7 +566,7 @@ const VIEWS = {
 <section class="tale enter">
   <p class="eyebrow">${TALE.order} 설화 · <span class="hj">${TALE.han}</span></p>
   <h1 id="tale-h" tabindex="-1">${TALE.name}</h1>
-  <figure class="emblem"><img class="l" src="img/tale/05-emblem.webp" alt="구름을 감고 오르는 용과 물 위의 연꽃" width="449" height="1057"><img class="d" src="img/tale/05-emblem-d.webp" alt="" width="449" height="1057"></figure>
+  <figure class="emblem"><img class="l" src="05-emblem.webp" alt="구름을 감고 오르는 용과 물 위의 연꽃" width="449" height="1057"><img class="d" src="05-emblem-d.webp" alt="" width="449" height="1057"></figure>
   <div class="poem">${TALE.poem.map(st => `<p>${st.join('<br>')}</p>`).join('')}</div>
   <div class="paths">
     <button type="button" class="path primary" data-act="toChup"><b>첩방단</b><span>첩 → 방 → 단</span></button>
@@ -584,7 +584,7 @@ const VIEWS = {
   <h1 id="today-h" tabindex="-1">오늘의 카드</h1>
   <button type="button" class="flip card${open ? ' back' : ''}" data-act="${open ? 'zoom' : 'drawToday'}"${open ? ` data-c="${c}" data-full="1"` : ''} aria-label="${open ? `단 ${danName(c)} 크게 보기` : '카드 뒷면, 눌러서 한 장 뽑기'}">
     <span class="flip-inner">
-      <span class="face a"><img src="img/dan/back.webp" alt="" width="720" height="1112"></span>
+      <span class="face a"><img src="back.webp" alt="" width="720" height="1112"></span>
       <span class="face b"><img id="today-img" src="${open ? danSrc(c, 'full') : ''}" alt="" width="720" height="1112"></span>
       <span class="fog f3" aria-hidden="true"></span><span class="fog f1" aria-hidden="true"></span><span class="fog f2" aria-hidden="true"></span>
     </span>
@@ -844,7 +844,7 @@ app.addEventListener('click', e => {
   else if (act === 'enter') go('tale');
   else if (act === 'toChup') go('intro');
   else if (act === 'toTale') go('tale');
-  else if (act === 'toToday') { state.today = null; go('today'); new Image().src = 'img/dan/back.webp'; }
+  else if (act === 'toToday') { state.today = null; go('today'); new Image().src = 'back.webp'; }
   else if (act === 'drawToday') drawToday(b);
   else if (act === 'coverToday') { state.today = null; go('today', false); }
   else if (act === 'toRing') go('ring');
